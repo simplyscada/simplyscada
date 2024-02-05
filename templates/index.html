@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimplyScada</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='control.png') }}">
+    <link href = "{{ url_for('static', filename='fonts/stylesheet.css') }}" rel = "stylesheet" type = "text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='jquery-3.6.4.min.js') }}"></script>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<style type="text/css">
+    html{
+        font-family: Google Sans,sans-serif;
+        color: white;
+        -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+    }
+
+</style>
+<form id="modbusForm1" method="post" action="/set_values">
+<body>
+    <div id="header">
+        <div id="nameObject"><p>Scada</p></div>
+        <div class="firealarm" id="fire"><span class="material-symbols-outlined">local_fire_department</span><p>Пожар</p></div>
+        <a href="#"><div class="bottun" id="underGr">Экран 1</div></a>
+        <a href="#"><div class="bottun" id="fFlore">Экран 2</div></a>
+        <a href="#"><div class="bottun" id="sFlore">Экран 3</div></a>
+        <a href="#"><div class="bottun" id="tFlore">Экран 4</div></a>
+        <a href="#"><div class="bottunExit" id="openButton"><span class="material-symbols-outlined">info</span></div></a>
+    </div>
+    <div id="content">
+
+        <!-- Screen 1 -->
+    <div id="screen1" class="">
+    <div class="row-4 clearfix">
+      <div class="col-1-4">
+        <center><h2>В1</h2>
+        <div class="" id="res1Bl"><span style="font-size:75px;" class="material-symbols-outlined" id="res1Tx">
+        </span></div>
+        <div id="res1Dy">ДУ</div>
+        <div id="res1My">МУ</div>
+        <div id="main1" class="visible">
+        
+            <a href="#"><div type="button" class="buttonOn button" id="setButton12 button" onclick="setValues(3, 0)">Включить</div></a>
+            <a href="#"><div type="button" class="buttonOff button" id="setButton13 button" onclick="setValues(2, 0)">Выключить</div> </a>
+
+        </div>
+
+
+
+        </center>
+      </div>
+
+
+
+      <div class="col-1-4">
+        <center><h2>В2</h2>
+        <div class="" id="res2Bl"><span style="font-size:75px;" class="material-symbols-outlined" id="res2Tx">
+        </span></div>
+        <div id="res2Dy" class="">ДУ</div>
+        <div id="res2My" class="">МУ</div>
+        <div id="main2" class="">
+        
+            <a href="#"><div type="button" class="buttonOn button" id="setButton22 button" onclick="setValues(3, 1)">Включить</div></a>
+            <a href="#"><div type="button" class="buttonOff button" id="setButton23 button" onclick="setValues(2, 1)">Выключить</div> </a>
+
+        </div>
+        </center>
+      </div>
+
+
+
+
+      <div class="col-1-4">
+        <center><h2>П1</h2>
+        <div class="" id="res3Bl"><span style="font-size:75px;" class="material-symbols-outlined" id="res3Tx">
+        </span></div>
+        <div id="res3Dy" class="">ДУ</div>
+        <div id="res3My" class="">МУ</div>
+        <div id="main3" class="">
+        
+            <a href="#"><div type="button" class="buttonOn button" id="setButton32 button" onclick="setValues(3, 2)">Включить</div></a>
+            <a href="#"><div type="button" class="buttonOff button" id="setButton33 button" onclick="setValues(2, 2)">Выключить</div> </a>
+
+        </div>
+        </center>
+      </div>
+
+
+
+      <div class="col-1-4">
+        <center><h2>П2</h2>
+        <div class="" id="res4Bl"><span style="font-size:75px;" class="material-symbols-outlined" id="res4Tx">
+        </span></div>
+        <div id="res4Dy" class="">ДУ</div>
+        <div id="res4My" class="">МУ</div>
+        <div id="main4" class="">
+        
+            <a href="#"><div type="button" class="buttonOn button" id="setButton42 button" onclick="setValues(3, 3)">Включить</div></a>
+            <a href="#"><div type="button" class="buttonOff button" id="setButton43 button" onclick="setValues(2, 3)">Выключить</div> </a>
+
+        </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="row-4 clearfix">      
+      <div class="col-1-4">
+        <center><h2>БКП4-20 №1</h2>
+<table>
+  <tbody>
+    <tr>
+      <td>Температура: </td>
+      <td id="result1">0</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Влажность: </td>
+      <td id="result2">0</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>CO: </td>
+      <td id="result3">0</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>CO2: </td>
+      <td id="result4">0</td>
+    </tr>
+  </tbody>
+</table>
+        </center>
+        
+      </div>
+    </div>
+
+
+
+
+
+
+    </div>
+    <!-- Screen1 end -->
+    <div id="screen2" class="">
+
+    </div>
+
+    <div id="screen3" class="">
+
+    </div>
+
+    <div id="screen4" class="">
+
+    </div>
+
+
+    </div>
+
+   
+        </form>
+
+
+<div id="info" class="hidden">
+  <a href="#"><div class="bottunExit" id="closeButton"><span class="material-symbols-outlined">cancel</span></div></a>
+  <div class="windowInfo">
+    <div><center><span class="material-symbols-outlined" style="font-size:100px;">info</span><p style="font-size:30px">about <b>SimplyScada</b></p></center>
+    <p>Ver.: 0.0.1</p><p>Last UPD: </p><p>License: </p><p>Total signals: </p><center><button id="checkUpdateButton">Check Update</button></center></div>
+  </div>
+</div>
+
+
+</body>
+
+</html>
