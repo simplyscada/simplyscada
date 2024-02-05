@@ -236,7 +236,7 @@ animation: blinkAnimation 0.5s infinite;
             }
         }
 
-#underGr {
+#zFlore {
     position: absolute;
     top: 0px;
     left: 500px;
@@ -279,6 +279,30 @@ animation: blinkAnimation 0.5s infinite;
     position: absolute;
     top: 0px;
     left: 860px;
+    width: 120px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+}
+#foFlore {
+    position: absolute;
+    top: 0px;
+    left: 980px;
+    width: 120px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+}
+#fiFlore {
+    position: absolute;
+    top: 0px;
+    left: 1100px;
     width: 120px;
     height: 100px;
     display: flex;
@@ -461,8 +485,12 @@ h2 {
   
 }
 
-#screen1, #screen2, #screen3, #screen4{
+#screen1, #screen2, #screen3, #screen4, #screen5, #screen0{
+display: none;
+}
 
+#screen1{
+    display: block;
 }
 
 .screenVisible{

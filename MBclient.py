@@ -63,6 +63,17 @@ def read_modbus_values():
         return None, None, None, None, None
 
 
+with open('license/license_validation_result.txt', 'r') as result_file:
+    result_value_str = result_file.read()
+
+# Преобразование строки в булево значение
+result_value = bool(result_value_str)
+
+if result_value:
+    print("The result is True.")
+    license = 1
+else:
+    print("The result is False.")
 
 if __name__ == "__main__" and license == 1:
     while True:

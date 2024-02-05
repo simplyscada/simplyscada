@@ -28,12 +28,14 @@
 <form id="modbusForm1" method="post" action="/set_values">
 <body>
     <div id="header">
-        <div id="nameObject"><p>Scada</p></div>
+        <div id="nameObject"><p>SimplyScada</p></div>
         <div class="firealarm" id="fire"><span class="material-symbols-outlined">local_fire_department</span><p>Пожар</p></div>
-        <a href="#"><div class="bottun" id="underGr">Экран 1</div></a>
-        <a href="#"><div class="bottun" id="fFlore">Экран 2</div></a>
-        <a href="#"><div class="bottun" id="sFlore">Экран 3</div></a>
-        <a href="#"><div class="bottun" id="tFlore">Экран 4</div></a>
+        <a href="#"><div class="bottun" id="zFlore">Этаж -1</div></a>
+        <a href="#"><div class="bottun" id="fFlore">Этаж 1</div></a>
+        <a href="#"><div class="bottun" id="sFlore">Этаж 2</div></a>
+        <a href="#"><div class="bottun" id="tFlore">Этаж 3</div></a>
+        <a href="#"><div class="bottun" id="foFlore">Этаж 4</div></a>
+        <a href="#"><div class="bottun" id="fiFlore">Этаж 5</div></a>
         <a href="#"><div class="bottunExit" id="openButton"><span class="material-symbols-outlined">info</span></div></a>
     </div>
     <div id="content">
@@ -155,6 +157,10 @@
     <!-- Screen1 end -->
     <div id="screen2" class="">
 
+
+
+
+
     </div>
 
     <div id="screen3" class="">
@@ -162,6 +168,14 @@
     </div>
 
     <div id="screen4" class="">
+
+    </div>
+
+    <div id="screen5" class="">
+
+    </div>
+
+    <div id="screen0" class="">
 
     </div>
 
@@ -176,7 +190,7 @@
   <a href="#"><div class="bottunExit" id="closeButton"><span class="material-symbols-outlined">cancel</span></div></a>
   <div class="windowInfo">
     <div><center><span class="material-symbols-outlined" style="font-size:100px;">info</span><p style="font-size:30px">about <b>SimplyScada</b></p></center>
-    <p>Ver.: 0.0.1</p><p>Last UPD: </p><p>License: </p><p>Total signals: </p><center><button id="checkUpdateButton">Check Update</button></center></div>
+    <p>Ver.: 24.2.5</p><p>Last UPD: 24.2.5</p><p>License: True</p><p>Total signals: </p><center><button id="checkUpdateButton">Check Update</button><div id="updateStatus"></div></center></div>
   </div>
 </div>
 

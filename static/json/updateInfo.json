@@ -1,0 +1,32 @@
+{
+  "index.html": {
+    "filePath": "templates/index.html",
+    "version": "24.02.05",
+    "localStoragePath": "templates/index.html",
+    "downloadUrl": "https://simplyscada.github.io/simplyscada/templates/index.html"
+  },
+  "script.js": {
+    "filePath": "static/script.js",
+    "version": "24.02.05",
+    "localStoragePath": "static/script.js",
+    "downloadUrl": "https://simplyscada.github.io/simplyscada/static/script.js"
+  },
+  "style.css": {
+    "filePath": "static/style.css",
+    "version": "24.02.05",
+    "localStoragePath": "static/style.css",
+    "downloadUrl": "https://simplyscada.github.io/simplyscada/static/style.css"
+  },
+  "app.py": {
+    "filePath": "app.py",
+    "version": "24.02.05",
+    "localStoragePath": "app.py",
+    "downloadUrl": "https://simplyscada.github.io/simplyscada/app.py"
+  },
+  "MBclient.py": {
+    "filePath": "MBclient.py",
+    "version": "24.02.05",
+    "localStoragePath": "MBclient.py",
+    "downloadUrl": "https://simplyscada.github.io/simplyscada/MBclient.py"
+  }
+}

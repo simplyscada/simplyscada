@@ -26,7 +26,7 @@ function updateValues() {
         res4 = data.result4;
         res5 = data.result5;
         resFire = data.resultFire;
-        resFire = 1
+        resFire = data.result1;
 
 const res1Bl = document.getElementById('res1Bl');
 const res2Bl = document.getElementById('res2Bl');
@@ -58,15 +58,27 @@ const butt4 = document.getElementById('main4');
         $('#result3').html(data.result5[2] + 'ppm');
         $('#result4').html(data.result5[3] + 'ppm');
         
+document.addEventListener('click', function() {
+});
 
+        var audio = new Audio('static/alarm.mp3');
         //fire
         if (resFire == 0) {
             fire.classList.add('fireOff');
             fire.classList.remove('fireOn');
+            audio.pause();
+            audio.currentTime = 0;
         }
         else{
             fire.classList.add('fireOn');
             fire.classList.remove('fireOff');
+            if (audio.paused || audio.ended) {
+                audio.currentTime = 0; // Устанавливаем время воспроизведения в начало
+                audio.play();
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+            }
         }
 
 
@@ -367,104 +379,109 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
-    var checkUpdateButton = document.getElementById("checkUpdateButton");
+    var flor0 = document.getElementById("zFlore");
+    var flor1 = document.getElementById("fFlore");
+    var flor2 = document.getElementById("sFlore");
+    var flor3 = document.getElementById("tFlore");
+    var flor4 = document.getElementById("foFlore");
+    var flor5 = document.getElementById("fiFlore");
+    var fl0Bl = document.getElementById("screen0");
+    var fl1Bl = document.getElementById("screen1");
+    var fl2Bl = document.getElementById("screen2");
+    var fl3Bl = document.getElementById("screen3");
+    var fl4Bl = document.getElementById("screen4");
+    var fl5Bl = document.getElementById("screen5");
 
-    checkUpdateButton.addEventListener("click", function() {
-        // Путь к JSON файлу на сервере
-        var serverJsonFilePath = 'https://example.com/path/to/updateInfo.json';
-
-        // Путь к локальному JSON файлу
-        var localJsonFilePath = 'localUpdateInfo.json';
-
-        // Проверка обновлений
-        checkAndUpdate(serverJsonFilePath, localJsonFilePath);
+    flor0.addEventListener("click", function() {
+        fl0Bl.style.display = "block";
+        fl1Bl.style.display = "none";
+        fl2Bl.style.display = "none";
+        fl3Bl.style.display = "none";
+        fl4Bl.style.display = "none";
+        fl5Bl.style.display = "none";
+        flor0.style.backGround = "#717d8a";
+        flor1.style.backGround = "#212529";
+        flor2.style.backGround = "#212529";
+        flor3.style.backGround = "#212529";
+        flor4.style.backGround = "#212529";
+        flor5.style.backGround = "#212529";
     });
-
-    function checkAndUpdate(serverJsonFilePath, localJsonFilePath) {
-        // Загрузка информации о содержимом файла с сервера
-        fetch(serverJsonFilePath)
-            .then(response => response.json())
-            .then(serverData => {
-                // Загрузка информации о содержимом локального JSON файла
-                fetch(localJsonFilePath)
-                    .then(response => response.json())
-                    .then(localData => {
-                        // Проверка обновлений для каждого файла
-                        Object.keys(serverData).forEach(filePath => {
-                            var serverInfo = serverData[filePath];
-                            var localStoragePath = serverInfo.localStoragePath;
-
-                            // Получение sha текущей версии файла из локального JSON файла
-                            var localVersion = localData[localStoragePath];
-
-                            // Если версия не совпадает, обновление доступно
-                            if (localVersion !== serverInfo.version) {
-                                alert(`Update available for ${filePath}.`);
-
-                                // Загрузка нового файла и замена текущего содержимого
-                                loadAndUpdate(filePath, serverInfo.version, localStoragePath, serverInfo.downloadUrl, localJsonFilePath);
-                            } else {
-                                alert(`No update available for ${filePath}.`);
-                            }
-                        });
-                    })
-                    .catch(error => {
-                        console.error(`Error loading local JSON file ${localJsonFilePath}:`, error);
-                    });
-            })
-            .catch(error => {
-                console.error(`Error loading server JSON file ${serverJsonFilePath}:`, error);
-            });
-    }
-
-    function loadAndUpdate(filePath, newVersion, localStoragePath, downloadUrl, localJsonFilePath) {
-        // Загрузка нового файла
-        fetch(downloadUrl)
-            .then(response => response.blob())
-            .then(newFileBlob => {
-                // Сохранение нового файла на локальном устройстве
-                saveAs(newFileBlob, localStoragePath);
-
-                // Обновление версии в локальном JSON файле
-                updateLocalJsonFile(localJsonFilePath, localStoragePath, newVersion);
-
-                alert(`File ${filePath} updated successfully.`);
-            })
-            .catch(error => {
-                console.error(`Error loading and updating ${filePath}:`, error);
-            });
-    }
-
-    function updateLocalJsonFile(localJsonFilePath, localStoragePath, newVersion) {
-        // Загрузка информации о содержимом локального JSON файла
-        fetch(localJsonFilePath)
-            .then(response => response.json())
-            .then(localData => {
-                // Обновление версии в локальном JSON файле
-                localData[localStoragePath] = newVersion;
-
-                // Сохранение обновленного JSON файла
-                saveJsonToFile(localJsonFilePath, localData);
-            })
-            .catch(error => {
-                console.error(`Error updating local JSON file ${localJsonFilePath}:`, error);
-            });
-    }
-
-    function saveJsonToFile(filePath, jsonData) {
-        // Преобразование JSON данных в строку
-        var jsonString = JSON.stringify(jsonData);
-
-        // Создание объекта Blob для JSON файла
-        var blob = new Blob([jsonString], { type: 'application/json' });
-
-        // Сохранение файла на локальном устройстве
-        saveAs(blob, filePath);
-    }
+    flor1.addEventListener("click", function() {
+        fl1Bl.style.display = "block";
+        fl0Bl.style.display = "none";
+        fl2Bl.style.display = "none";
+        fl3Bl.style.display = "none";
+        fl4Bl.style.display = "none";
+        fl5Bl.style.display = "none";
+        flor0.style.backGround = "#212529";
+        flor1.style.backGround = "#717d8a";
+        flor2.style.backGround = "#212529";
+        flor3.style.backGround = "#212529";
+        flor4.style.backGround = "#212529";
+        flor5.style.backGround = "#212529";
+    });
+    flor2.addEventListener("click", function() {
+        fl2Bl.style.display = "block";
+        fl1Bl.style.display = "none";
+        fl0Bl.style.display = "none";
+        fl3Bl.style.display = "none";
+        fl4Bl.style.display = "none";
+        fl5Bl.style.display = "none";
+        flor0.style.backGround = "#212529";
+        flor1.style.backGround = "#212529";
+        flor2.style.backGround = "#717d8a";
+        flor3.style.backGround = "#212529";
+        flor4.style.backGround = "#212529";
+        flor5.style.backGround = "#212529";
+    });
+    flor3.addEventListener("click", function() {
+        fl3Bl.style.display = "block";
+        fl1Bl.style.display = "none";
+        fl0Bl.style.display = "none";
+        fl2Bl.style.display = "none";
+        fl4Bl.style.display = "none";
+        fl5Bl.style.display = "none";
+        flor0.style.backGround = "#212529";
+        flor1.style.backGround = "#212529";
+        flor2.style.backGround = "#212529";
+        flor3.style.backGround = "#717d8a";
+        flor4.style.backGround = "#212529";
+        flor5.style.backGround = "#212529";
+    });
+    flor4.addEventListener("click", function() {
+        fl4Bl.style.display = "block";
+        fl1Bl.style.display = "none";
+        fl0Bl.style.display = "none";
+        fl2Bl.style.display = "none";
+        fl3Bl.style.display = "none";
+        fl5Bl.style.display = "none";
+        flor0.style.backGround = "#212529";
+        flor1.style.backGround = "#212529";
+        flor2.style.backGround = "#212529";
+        flor3.style.backGround = "#212529";
+        flor4.style.backGround = "#717d8a";
+        flor5.style.backGround = "#212529";
+    });
+    flor5.addEventListener("click", function() {
+        fl5Bl.style.display = "block";
+        fl1Bl.style.display = "none";
+        fl0Bl.style.display = "none";
+        fl2Bl.style.display = "none";
+        fl3Bl.style.display = "none";
+        fl4Bl.style.display = "none";
+        flor0.style.backGround = "#212529";
+        flor1.style.backGround = "#212529";
+        flor2.style.backGround = "#212529";
+        flor3.style.backGround = "#212529";
+        flor4.style.backGround = "#212529";
+        flor5.style.backGround = "#717d8a";
+    });
 });
+
+
+
+
 
 
 
